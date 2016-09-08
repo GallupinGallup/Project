@@ -5,24 +5,45 @@ import java.util.Scanner;
 
 public class StupidController 
 {
-	private String myName;
 	private Scanner readKeyboardInput;
 	
-	public StupidController() {
-		myName = "TylerGallup";
+	public StupidController() 
+	{
 		readKeyboardInput = new Scanner(System.in);
 	}
 	
 	 public void start()
 	 {
-		System.out.println("agg dduee");
-		System.out.println(myName);
 		askQuestions();
 	}
 	 private void askQuestions()
 	 {
-		 System.out.println("Whats you name?");
+		 waitSentence("Hi!");
+		 waitSentence("My name is Professor Oak!");
+		 waitSentence("What is your name?");
 		 String userInput = readKeyboardInput.nextLine();
-		 System.out.println("Your name is " + userInput + "?");
+		 waitSentence("Your name is " + userInput + "?");
+	 }
+	 
+	 public void waitSentence(String sentence)
+	 {
+		 char[] chars = sentence.toCharArray();
+		 for(char c : chars)
+		 {
+			 try {
+				Thread.sleep(65);
+			} catch (InterruptedException e) 
+			 {
+				e.printStackTrace();
+			}
+			 System.out.print(c);
+		 }
+		 System.out.println("");
+		 try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) 
+			 {
+				e.printStackTrace();
+			}
 	 }
 }
