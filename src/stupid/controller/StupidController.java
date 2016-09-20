@@ -19,36 +19,41 @@ public class StupidController
 		nameFriend = true;
 		pokemon = true;
 	}
+}
 	
 	 public void start()
 	 {
-		askQuestions();
+		 begin();
+		 yourName();
 	}
-	 private void askQuestions()
+	 private void begin()
 	 {
 		 waitSentence("\"Hi!\"");
 		 waitSentence("\"My name is Professor Oak!\"");
-		 while(full)
-		 {
 			 name = true;
 			 nameFriend = true;
 			 pokemon = true;
+	 }
+	 private void yourName()
+	 {
 			 while(name)
 			 {
 			 waitSentence("\"What is your name?\"");
 			 String userInput = readKeyboardInput.nextLine(); // 1
 			 waitSentence("Your name is " + userInput + "?");
-		 
+	
 			 userInput = readKeyboardInput.nextLine(); // 2
 			 if(userInput.equalsIgnoreCase("Yes"))
 			 {
 				 waitSentence("\"I like that name!\"");
 				 name = false;
 			 }
-
-			 }
-
-			 waitSentence("\"Is this your friend?\"");
+		 }
+	 }
+ 
+	 	private void friendName()
+	 	{
+			 waitSentence("\"Is this your friend\"?");
 			 while(nameFriend)
 			 {
 			 waitSentence("\"What is his name?\"");
@@ -62,6 +67,10 @@ public class StupidController
 				 name = false;
 			 }
 			 }
+			 }
+		private void worldOfPokemon()
+		{
+			 
 			 waitSentence("\"Would you like to hear about the world of Pokemon?\"");
 			 userInput = readKeyboardInput.nextLine();//5
 			 if(userInput.equalsIgnoreCase("Yes"))
@@ -79,6 +88,9 @@ public class StupidController
 			 {
 				 waitSentence("\"FINE YOU LAZY BUTT!\"");
 			 }
+	 	}
+		private void pokedex()
+		{
 			 	waitSentence("\"Would you like a pokedex? It helps you keep track of all the\"");
 			 	waitSentence("\"pokemon you have caught or seen!\"");
 			 	userInput = readKeyboardInput.nextLine();// 6
@@ -99,6 +111,8 @@ public class StupidController
 		 			waitSentence("It is shoved down your throat!");
 		 		}
 		 	}
+		}
+		
 			 while(pokemon)
 			 {
 			 waitSentence("\"What pokemon would you like?\"");
@@ -133,10 +147,10 @@ public class StupidController
 		 		waitSentence("\"TOO BAD GET OUT OF MY OFFICE\"");
 		 		waitSentence("You are forcefully ejected from the building!");
 		 		full = false;
-		 		}
 		 	}
-		 }
-		 }
+	
+
+
 		 
 	 public void waitSentence(String sentence)
 	 {
